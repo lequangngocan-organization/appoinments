@@ -1,0 +1,35 @@
+{
+    "name": "anlqn/appointments",
+    "description": "Reusable appointments module (DDD-lite) for Laravel (no .ics; Google sends invites).",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.1.0",
+    "autoload": {
+        "psr-4": {
+            "Anlqn\\Appointments\\": "src/"
+        },
+        "files": [
+            "src/Helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anlqn\\Appointments\\AppointmentsServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.0|^10.0|^11.0|^12.0",
+        "illuminate/database": "^9.0|^10.0|^11.0|^12.0",
+        "illuminate/mail": "^9.0|^10.0|^11.0|^12.0",
+        "google/apiclient": "^2.17"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^9.6|^10.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
