@@ -13,6 +13,7 @@ use Anlqn\Appointments\Domain\Events\{AppointmentScheduled};
 final class ScheduleAppointmentHandler
 {
     public function __construct(private AppointmentRepository $repo) {}
+
     public function handle(ScheduleAppointmentCommand $cmd): Appointment
     {
         return \DB::transaction(function () use ($cmd) {

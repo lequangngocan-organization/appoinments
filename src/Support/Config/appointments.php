@@ -3,11 +3,11 @@ return [
     'default_timezone' => env('APPT_TZ', 'Asia/Ho_Chi_Minh'),
 
     'google' => [
-        'enabled'       => env('APPT_GOOGLE_ENABLED', true),
-        'client_id'     => env('APPT_GOOGLE_CLIENT_ID'),
+        'enabled' => env('APPT_GOOGLE_ENABLED', true),
+        'client_id' => env('APPT_GOOGLE_CLIENT_ID'),
         'client_secret' => env('APPT_GOOGLE_CLIENT_SECRET'),
-        'redirect_uri'  => env('APPT_GOOGLE_REDIRECT_URI'),
-        'send_updates'  => env('APPT_GOOGLE_SEND_UPDATES', 'all'),
+        'redirect_uri' => env('APPT_GOOGLE_REDIRECT_URI'),
+        'send_updates' => env('APPT_GOOGLE_SEND_UPDATES', 'all'),
         'organizer_email' => env('APPT_ORGANIZER_EMAIL'),
 
         'scopes' => [
@@ -17,7 +17,7 @@ return [
             'https://www.googleapis.com/auth/userinfo.profile',
         ],
         'access_type' => 'offline',
-        'prompt'      => 'consent',
+        'prompt' => 'consent',
     ],
 
     'mail' => [
@@ -31,5 +31,12 @@ return [
 
     'meet' => [
         'enabled' => env('APPT_GOOGLE_MEET', true), // enable generate link google meet
+    ],
+
+    'async' => env('APPT_ASYNC', false),
+
+    'queue' => [
+        'connection' => env('APPT_QUEUE_CONNECTION', env('QUEUE_CONNECTION', 'sync')),
+        'name' => env('APPT_QUEUE_NAME', 'default'),
     ],
 ];

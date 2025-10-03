@@ -41,11 +41,17 @@ final class AppointmentsServiceProvider extends ServiceProvider
         }
 
         // Domain events → jobs
-        \Event::listen(
-            AppointmentScheduled::class,
-            fn($e) =>
-            CreateCalendarEventJob::dispatch($e->appt->id)->afterCommit()
-        );
+        \Event::listen(AppointmentScheduled::class, function ($e) {
+            if (config('appointments.async')) {
+                CreateCalendarEventJob::dispatch($e->appt->id)
+                    ->onConnection(config('appointments.queue.connection'))
+                    ->onQueue(config('appointments.queue.name'))
+                    ->afterCommit();
+            } else {
+                // chạy ngay không queue
+                app(CalendarGateway::class)->create($e->appt);
+            }
+        });
 
         \Event::listen(
             AppointmentRescheduled::class,

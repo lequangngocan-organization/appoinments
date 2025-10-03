@@ -3,7 +3,6 @@
     "description": "Reusable appointments module (DDD-lite) for Laravel (no .ics; Google sends invites).",
     "type": "library",
     "license": "MIT",
-    "version": "0.1.0",
     "autoload": {
         "psr-4": {
             "Anlqn\\Appointments\\": "src/"
